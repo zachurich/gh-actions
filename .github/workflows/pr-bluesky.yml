@@ -1,0 +1,22 @@
+name: Post on Bluesky Social
+
+on:
+  workflow_dispatch:
+    inputs:
+      post:
+        type: string
+        required: true
+        description: "The post content in JSON format"
+        default: '{"$type": "app.bsky.feed.post", "text": "Hello World!", "createdAt": "2023-08-07T05:31:12.156888Z"}'
+
+jobs:
+  bsky-post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: zentered/bluesky-post-action@v0.3.0
+        with:
+          post: ${{ inputs.post }}
+          service: "https://bsky.social"
+        env:
+          BSKY_IDENTIFIER: ${{ secrets.BSKY_IDENTIFIER }}
+          BSKY_PASSWORD: ${{ secrets.BSKY_PASSWORD }}
