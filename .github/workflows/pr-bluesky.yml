@@ -1,13 +1,12 @@
 name: Post on Bluesky Social
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       post:
         type: string
         required: true
-        description: "The post content in JSON format"
-        default: '{"$type": "app.bsky.feed.post", "text": "Hello World!", "createdAt": "2023-08-07T05:31:12.156888Z"}'
+        description: "The post content string"
 
 jobs:
   bsky-post:
