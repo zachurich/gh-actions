@@ -9,7 +9,7 @@ jobs:
       - uses: zentered/bluesky-post-action@v0.3.0
         with:
           post: |
-            ⚒️ PR opened: "${{ github.event.pull_request.title }}" ⚒️
+            ⚒️ PR opened: "${{ github.event.pull_request.title }}"
             --
             ${{github.event.pull_request.body}}
             --
