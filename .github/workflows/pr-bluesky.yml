@@ -9,7 +9,9 @@ jobs:
       - uses: zentered/bluesky-post-action@v0.3.0
         with:
           post: |
-            I just opened a PR called "${{ github.event.pull_request.title }}'
+            ⚒️ PR opened: "${{ github.event.pull_request.title }}' ⚒️
+            --
+            ${{github.event.pull_request.body}}
             --
             🔗 ${{ github.event.pull_request.html_url }}
           service: "https://bsky.social"
